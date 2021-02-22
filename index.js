@@ -18,7 +18,7 @@ mousetrap.bind('/', clickDivision)
 mousetrap.bind('*', clickMult)
 
 mousetrap.bind('escape', clickBorrar)
-mousetrap.bind('enter', clickIgual)
+mousetrap.bind('backspace', clickBack)
 
 
 document.getElementById('botonUno').addEventListener('click', clickUno)
@@ -41,7 +41,7 @@ document.getElementById('division').addEventListener('click', clickDivision)
 document.getElementById('mult').addEventListener('click', clickMult)
 
 document.getElementById('botonBorrar').addEventListener('click', clickBorrar)
-document.getElementById('botonIgual').addEventListener('click', clickIgual)
+document.getElementById('botonBack').addEventListener('click', clickBack)
 
 var actualElemento = document.getElementById('numeroActual')
 var resultadoElemento = document.getElementById('resultado')
@@ -131,11 +131,9 @@ function clickBorrar(){
     resultadoElemento.innerHTML = 0
     }
 }
-function clickIgual(){
+function clickBack(){
     if(actual != ''){
-    resultado = resultado
-    actual = ''
-    actualElemento.innerHTML = '0'
-    resultadoElemento.innerHTML = resultado
+    actual = actual.substring(0,actual.length-1)
+    actualElemento.innerHTML = actual
     }
 }
