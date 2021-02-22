@@ -17,6 +17,9 @@ mousetrap.bind('-', clickResta)
 mousetrap.bind('/', clickDivision)
 mousetrap.bind('*', clickMult)
 
+mousetrap.bind('escape', clickBorrar)
+mousetrap.bind('enter', clickIgual)
+
 
 document.getElementById('botonUno').addEventListener('click', clickUno)
 document.getElementById('botonDos').addEventListener('click', clickDos)
@@ -31,7 +34,14 @@ document.getElementById('botonCero').addEventListener('click', clickCero)
 
 
 
+
 document.getElementById('suma').addEventListener('click', clickSuma)
+document.getElementById('resta').addEventListener('click', clickResta)
+document.getElementById('division').addEventListener('click', clickDivision)
+document.getElementById('mult').addEventListener('click', clickMult)
+
+document.getElementById('botonBorrar').addEventListener('click', clickBorrar)
+document.getElementById('botonIgual').addEventListener('click', clickIgual)
 
 var actualElemento = document.getElementById('numeroActual')
 var resultadoElemento = document.getElementById('resultado')
@@ -108,6 +118,22 @@ function clickDivision(){
 function clickMult(){
     if(actual != ''){
     resultado = resultado * parseInt(actual)
+    actual = ''
+    actualElemento.innerHTML = '0'
+    resultadoElemento.innerHTML = resultado
+    }
+}
+function clickBorrar(){
+    if(actual != ''){
+    resultado = 0
+    actual = ''
+    actualElemento.innerHTML = '0'
+    resultadoElemento.innerHTML = 0
+    }
+}
+function clickIgual(){
+    if(actual != ''){
+    resultado = resultado
     actual = ''
     actualElemento.innerHTML = '0'
     resultadoElemento.innerHTML = resultado
